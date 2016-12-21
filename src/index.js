@@ -21,4 +21,7 @@ io.on('connection', function(client){
 
 });
 
-server.listen(10000);
+
+server.listen(10000, () => {
+  console.log(`Listening on *:10000`)
+});
