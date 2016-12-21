@@ -7,13 +7,15 @@ const io = socket(server);
 const RGB = new RGBControl(27, 22, 23);
 
 io.on('connection', function(client){
-  console.log('Connected slave', client.id);
+  console.log(`Connected slave: ${client.id}`);
 
   client.on('rgb:color', function(data){
-    RGB.setColor(data.red, data.green, data.blue)
+    console.log(`Setting color: (${data.red}, ${data.green}, ${data.blue})`);
+    RGB.setColor(data.red, data.green, data.blue);
   });
 
   client.on('rgb:intensity', function(data){
+    console.log(`Setting intensity: ${data.intensity}`);
     RGB.setIntensity(data.intensity);
   });
 
