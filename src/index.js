@@ -4,7 +4,7 @@ import RGBControl from './lib/RGBControl';
 
 const server = http.createServer();
 const io = socket(server);
-const RGB = new RGBControl(27, 22, 23);
+const RGB = new RGBControl(27, 22, 23).applyFading();
 
 io.on('connection', function(client){
   console.log(`Connected slave: ${client.id}`);
